@@ -23,7 +23,7 @@
       </feature>
     </config-file>
 
-    <source-file src="src/android/MokiMobiliy.java" target=src/com/serviewcare/plugin/" />
+    <source-file src="src/android/MokiMobiliy.java" target="src/com/serviewcare/plugin/" />
   </platform>
 
   <platform name="ios">
