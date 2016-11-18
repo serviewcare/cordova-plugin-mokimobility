@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.silvervue.mobi"
+        version="0.7.0">
+
+  <name>Moki Mobility</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/moki.js" target="js/moki.js"/>
+
+  <js-module src="www/moki.js" name="moki">
+    <clobbers target="moki" />
+  </js-module>
+
+  <platform name="android">
+    
+    <config-file target="config.xml" parent="/*">
+      <feature name="MokiMobility">
+        <param name="android-package-package" value="com.serviewcare.plugin.MokiMobility" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/MokiMobiliy.java" target=src/com/serviewcare/plugin/" />
+  </platform>
+
+  <platform name="ios">
+    <config-file target="config.xml" parent="/widget">
+      <feature name="MokiMobility">
+        <param name="ios-package" value="MokiMobility" />
+      </feature>
+    </config-file>
+
+    <framework src="libstdc++.6.dylib" />
+    <framework src="libz.dylib" />
+    <framework src="CoreLocation.framework" />
+    <framework src="CoreData.framework" />
+    <framework src="SystemConfiguration.framework" />
+    <framework src="CoreTelephony.framework" />
+
+    <source-file src="src/ios/libs/libMokiManage.a" framework="true"/>
+
+    <header-file src="src/ios/headers/MMAction.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMASMControlValues.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMComplianceCheck.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMComplianceReport.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMConstants.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMDetailViewController.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMEnrollmentViewController.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMMasterViewController.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMNetworkCheck.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMNetworkCheckASMViewController.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMNetworkReport.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMNetworkReportViewController.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MMNetworkURLView.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/MokiManage.h" target-dir="MokiMobility"/>
+    <header-file src="src/ios/headers/UIView+MMViewSensitivity.h" target-dir="MokiMobility"/>
+
+    <header-file src="src/ios/MokiMobility.h" target-dir="MokiMobility"/>
+    <source-file src="src/ios/MokiMobility.m" target-dir="MokiMobility"/>
+  </platform>
+</plugin>
